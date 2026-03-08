@@ -4,7 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude Code](https://img.shields.io/badge/Claude_Code-Skill-blue)](https://docs.anthropic.com/en/docs/claude-code)
 
-Complete visual content system for Claude Code — 16 specialized workflows, 2 AI image models (Google Gemini), aesthetic routing, and brand customization.
+Complete visual content system for Claude Code -- 16 specialized workflows, 2 AI image models (Google Gemini), aesthetic routing, and brand customization.
 
 The default model is **Nano Banana 2** (`gemini-3.1-flash-image-preview`), combining Pro-level quality with Flash speed at ~50% lower cost.
 
@@ -12,7 +12,16 @@ The default model is **Nano Banana 2** (`gemini-3.1-flash-image-preview`), combi
 
 ## Installation
 
-Clone the repo into your Claude Code skills directory:
+### Quick Install
+
+```bash
+git clone https://github.com/aplaceforallmystuff/claude-art-skill.git /tmp/claude-art-skill
+cd /tmp/claude-art-skill && bash install.sh
+cd ~/.claude/skills/art/tools && bun install
+rm -rf /tmp/claude-art-skill
+```
+
+### Manual Install
 
 ```bash
 git clone https://github.com/aplaceforallmystuff/claude-art-skill.git /tmp/claude-art-skill
@@ -200,12 +209,12 @@ bun run ~/.claude/skills/art/tools/generate-image.ts \
 
 The skill ships with a warm hand-drawn sketch aesthetic as default. To add your own brand:
 
-1. Create a new file at `skills/art/aesthetics/your-brand.md`
+1. Create a new file at `~/.claude/skills/art/aesthetics/your-brand.md`
 2. Define your brand colors, line style, composition rules, and mood
-3. Define a **Base Prompt Prefix** — the consistency lock that ensures all your images look cohesive
+3. Define a **Base Prompt Prefix** -- the consistency lock that ensures all your images look cohesive
 4. When generating, tell Claude which brand to use: "Create a header using my-brand aesthetic"
 
-See `skills/art/aesthetic.md` for the default example format.
+See `skills/art/aesthetic.md` for the default example format, and `skills/art/aesthetics/README.md` for the full specification of required sections.
 
 ## Further Reading
 

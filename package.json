@@ -1,7 +1,7 @@
 {
   "name": "claude-art-skill",
   "version": "1.0.0",
-  "description": "Complete visual content system for Claude Code — 15 workflows, 4 AI models, aesthetic routing, and brand customization.",
+  "description": "Complete visual content system for Claude Code — 16 workflows, 2 AI image models (Google Gemini), aesthetic routing, and brand customization.",
   "license": "MIT",
   "repository": {
     "type": "git",

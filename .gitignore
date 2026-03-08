@@ -5,3 +5,4 @@ bun.lock
 
 # Personal aesthetics (users create their own)
 skills/art/aesthetics/
+!skills/art/aesthetics/README.md

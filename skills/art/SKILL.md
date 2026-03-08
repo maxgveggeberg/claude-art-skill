@@ -39,7 +39,7 @@ The art skill supports multiple visual identities. **Before generating any visua
 
 ### How to Select an Aesthetic
 
-1. **Check if the user specifies a brand/project** (e.g., "HotSquatch icon", "SoN newsletter header")
+1. **Check if the user specifies a brand/project** (e.g., "my-brand icon", "acme newsletter header")
 2. **Check for content-type exceptions** (see Content-Type Override Rules below)
 3. **Check if the target output has a site-specific style guide** (e.g., `HERO-IMAGE-TEMPLATE.md`)
 4. **If no brand specified, use the default aesthetic**
@@ -80,7 +80,8 @@ The art skill supports multiple visual identities. **Before generating any visua
 | Brand | Aesthetic File | Style |
 |-------|---------------|-------|
 | **Default** | `~/.claude/skills/art/aesthetic.md` | Hand-drawn sketch, cream backgrounds, teal/orange accents |
-**To add a new aesthetic:** Use the `aesthetic-definer` agent. It outputs to `~/.claude/skills/art/aesthetics/[name].md`.
+
+**To add a new aesthetic:** Create a new file at `~/.claude/skills/art/aesthetics/[name].md` using the default aesthetic as a template. See `aesthetics/README.md` for the required format.
 
 ### Aesthetic Loading Rule
 
@@ -269,7 +270,7 @@ What does user need?
 | YouTube thumbnail | 1280x720 (16:9) | **2MB** | Use `--size 1080p` or compress after |
 | LinkedIn post | 1200x627 | 5MB | |
 | Twitter/X post | 1200x675 (16:9) | 5MB | |
-| Newsletter header | 1200x600 | 1MB | Kit.com limit |
+| Newsletter header | 1200x600 | 1MB | Email platform limit |
 | Instagram square | 1080x1080 | 8MB | |
 
 **If generated image exceeds size limit:**
