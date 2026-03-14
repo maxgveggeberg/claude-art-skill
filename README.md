@@ -43,12 +43,17 @@ bun install
 Create `~/.claude/.env` with the API keys for the models you want to use:
 
 ```
-# Required for both Nano Banana 2 and Nano Banana Pro
+# Google Gemini API (direct)
 GOOGLE_API_KEY=your-google-api-key
+
+# OR OpenRouter (alternative provider)
+OPENROUTER_KEY=your-openrouter-key
 
 # Optional — for background removal
 REMOVEBG_API_KEY=your-removebg-key
 ```
+
+If both keys are present, Google is used by default. Use `--provider openrouter` to override.
 
 ## Usage
 
@@ -66,8 +71,10 @@ The skill automatically routes to the appropriate workflow based on your request
 
 | Model | Provider | Cost/Image | Best For |
 |-------|----------|-----------|----------|
-| **nano-banana-2** (default) | Google Gemini | ~$0.067 | Fast iteration, most tasks, web search grounding |
-| **nano-banana-pro** | Google Gemini | ~$0.134 | Maximum reasoning, complex multi-turn editing |
+| **nano-banana-2** (default) | Google Gemini / OpenRouter | ~$0.067 | Fast iteration, most tasks, web search grounding |
+| **nano-banana-pro** | Google Gemini / OpenRouter | ~$0.134 | Maximum reasoning, complex multi-turn editing |
+
+Both models work with either the Google Gemini API directly or via [OpenRouter](https://openrouter.ai). Note: `--thinking` and `--grounded` are Google-only features.
 
 ### Nano Banana 2 Highlights
 
@@ -171,6 +178,7 @@ bun run ~/.claude/skills/art/tools/generate-image.ts \
 
 ```
 --model          Model: nano-banana-2 (default), nano-banana-pro
+--provider       API provider: google, openrouter (auto-detected from API keys)
 --prompt         Image generation prompt (required)
 --size           Resolution: 512px, 1K, 2K (default), 4K — 512px is NB2 only
 --aspect-ratio   Aspect ratio (1:1, 16:9, 9:16, 4:3, 3:2, 21:9, and NB2 extended)
@@ -220,6 +228,10 @@ See `skills/art/aesthetic.md` for the default example format, and `skills/art/ae
 
 - [Gemini API image generation docs](https://ai.google.dev/gemini-api/docs/image-generation) — full API reference for parameters, thinking config, aspect ratios, reference images, and multi-turn editing
 - [Nano Banana prompting guide](skills/art/nano-banana-guide.md) — detailed prompt formulas, action verbs, mood vocabulary, and brand integration templates
+
+## Contributors
+
+- [@wych42](https://github.com/wych42) — OpenRouter provider support ([#1](https://github.com/aplaceforallmystuff/claude-art-skill/pull/1))
 
 ## License
 
