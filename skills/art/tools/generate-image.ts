@@ -24,7 +24,9 @@ import { extname, resolve } from "node:path";
  * This ensures API keys are available regardless of how the CLI is invoked
  */
 async function loadEnv(): Promise<void> {
-  const envPath = resolve(process.env.HOME!, '.claude/.env');
+  const homeDir = process.env.HOME || process.env.USERPROFILE;
+  if (!homeDir) return;
+  const envPath = resolve(homeDir, '.claude/.env');
   try {
     const envContent = await readFile(envPath, 'utf-8');
     for (const line of envContent.split('\n')) {
